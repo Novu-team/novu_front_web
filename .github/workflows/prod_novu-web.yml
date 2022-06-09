@@ -30,7 +30,7 @@ jobs:
         run: yarn build --if-present
 
       - name: Test step
-        run: yarn test
+        run: yarn test --passWithNoTests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
