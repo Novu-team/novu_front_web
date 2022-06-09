@@ -5,7 +5,7 @@ import { get, isEqual } from 'lodash'
 import { useTranslation } from 'react-i18next'
 
 const ErrorText = styled.p`
-  color: ${props => get(props, 'theme.orange', '#fff')};
+  color: ${props => get(props, 'theme.alert', '#CF0023FF')};
   font-size: 15px;
   font-weight: 600;
   font-family: 'Source Sans Pro', sans-serif;
@@ -20,7 +20,7 @@ const Error = ({ error, context }) => {
     )
   }
 
-  if (isEqual(get(error, 'code'), 401)) {
+  if (isEqual(get(error, 'code'), 403)) {
     return (
       <ErrorText>{t(`ERROR.${context}.forbidden`)}</ErrorText>
     )

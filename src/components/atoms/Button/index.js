@@ -13,7 +13,7 @@ const StyledButton = styled.button`
   outline: none;
   border: none;
   border-radius: 24px;
-  color: ${({ theme, color }) => get(theme, color, '#FFF')};
+  color: ${({ theme, color }) => get(theme, color, '#008A92FF')};
   background-color: ${({ theme, background }) => get(theme, background, '#FFF')};
   cursor: pointer;
 `

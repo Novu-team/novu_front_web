@@ -9,8 +9,6 @@ import userToken from '../../../redux/selectors/userToken'
 const AuthRoute = ({ isLogged, ...props }) => {
   const token = useSelector(userToken)
 
-  console.log(token)
-
   if (isLogged && isNull(token)) {
     return (
       <Navigate to={{

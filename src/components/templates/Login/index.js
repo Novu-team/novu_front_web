@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { get } from 'lodash'
 import { useFormik } from 'formik'
-import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import * as Yup from 'yup'
 
@@ -11,11 +10,18 @@ import Error from '../../atoms/Error'
 import Input from '../../atoms/Input'
 import Title from '../../atoms/Title'
 import Button from '../../atoms/Button'
+import logoNovu from '../../../assets/svg/Logo.svg'
 import authErrorSelector from '../../../redux/selectors/authError'
 import { loginUser } from '../../../redux/slices/authentication'
+import { useNavigate } from 'react-router-dom'
+
+const Logo = styled.img`
+  width: auto;
+  height: 200px;
+`
 
 const loginSchema = Yup.object().shape({
-  username: Yup.string().required(),
+  email: Yup.string().required(),
   password: Yup.string().required()
 })
 
@@ -64,41 +70,46 @@ const StyledForm = styled(Form)`
 `
 
 const Login = () => {
-  const { t } = useTranslation()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const authError = useSelector(authErrorSelector)
 
   const { values, errors, handleChange, handleSubmit } = useFormik({
     initialValues: {
-      username: '',
+      email: '',
       password: ''
     },
     validationSchema: loginSchema,
-    onSubmit: (values) => dispatch(loginUser(values))
+    onSubmit: async (values) => {
+      await dispatch(loginUser(values))
+
+      return navigate('/users')
+    }
   })
 
   return (
     <ContainerRoot>
       <Container>
-        <CenteredTitle color='blue'>{t('LOGIN.title')}</CenteredTitle>
+        <Logo src={logoNovu} />
+        <CenteredTitle color='primary'>Connexion</CenteredTitle>
         <Container2>
           <StyledForm>
             <Error error={authError}/>
             <StyledInput
               type='text'
-              name='username'
-              error={!!get(errors, 'username')}
-              label='COMMON.username'
-              value={get(values, 'username')}
+              name='email'
+              error={!!get(errors, 'email')}
+              label="Nom d'utilisateur"
+              value={get(values, 'email')}
               onChange={handleChange} />
             <StyledInput
               type='password'
               name='password'
               error={!!get(errors, 'password')}
-              label='COMMON.password'
+              label='Mot de passe'
               value={get(values, 'password')}
               onChange={handleChange} />
-            <StyledButton onClick={handleSubmit}>{t('COMMON.validate')}</StyledButton>
+            <StyledButton background={'primary'} color={'white'} onClick={handleSubmit}>Valider</StyledButton>
           </StyledForm>
         </Container2>
       </Container>

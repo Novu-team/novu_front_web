@@ -6,17 +6,17 @@ import { get, isEqual } from 'lodash'
 import media from '../../../utils/media'
 
 const style = ({ theme }) => `
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 16px;
   line-height: normal;
-  color: ${get(theme, 'white', '#FFF')};
+  color: ${get(theme, 'black', '#008A92FF')};
 
   & > em {
     font-style: italic;
   }
 
   & > span {
-    color: ${get(theme, 'white', '#FFF')};
+    font-weight: bold;
+    color: ${get(theme, 'black', '#FFF')};
   }
 `
 

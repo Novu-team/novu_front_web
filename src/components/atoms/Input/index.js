@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { get, isEqual } from 'lodash'
-import { useTranslation } from 'react-i18next'
 import { useCallback, useState } from 'react'
 
-import Eye from '../../../assets/eye.svg'
+import Eye from '../../../assets/svg/eye.svg'
+import { useTranslation } from 'react-i18next'
 
 const StyledEye = styled.img`
   position: absolute;
@@ -22,7 +22,7 @@ const StyledInput = styled.input`
   color: ${({ theme }) => get(theme, 'grey', '#FFF')};
   padding: 4px 8px;
   box-sizing: border-box;
-  border: 0.25px solid ${props => get(props, 'error', false) ? get(props, 'theme.orange', '#fff') : get(props, 'theme.grey', '#fff')};
+  border: 0.25px solid ${props => get(props, 'error', false) ? get(props, 'theme.alert', '#fff') : get(props, 'theme.grey', '#fff')};
   border-radius: 6px;
   font-size: 15px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -30,10 +30,6 @@ const StyledInput = styled.input`
   &::placeholder {
     color: ${({ theme }) => get(theme, 'grey', '#FFF')};
     font-family: 'Source Sans Pro', sans-serif;
-  }
-
-  &:focus {
-    outline: none;
   }
 `
 
@@ -58,7 +54,7 @@ const Input = ({ type, name, label, error, value, onChange, ...props }) => {
           error={error}
           value={value}
           onChange={onChange}
-          placeholder={t(label)}
+          placeholder={label}
           data-testid='input'
           {...props} />
         <StyledEye src={Eye} onClick={onClick}/>

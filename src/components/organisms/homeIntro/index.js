@@ -1,20 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import imageAgenda from '../../../assets/agenda.jpg'
-import imageBookNote from '../../../assets/book_note.jpg'
-import imageHotel_piscine from '../../../assets/hotel_piscine.jpg'
+import mockUpApp from '../../../assets/mockup_app_novu.png'
+import googlePlayAppStore from '../../../assets/google_play_app_store.png'
 
 import HomeSectionTitle from '../../atoms/HomeSectionTitle'
 import HomeSectionSubtitle from '../../atoms/HomeSectionSubtitle'
 
-const StyledImage = styled.img`
-  height: 33vh;
+const BackgroundImage = styled.img`
+  height: 100vh;
   width: 100%;
   object-fit: cover;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
+`
+
+const DownloadIndication = styled.img`
+  
 `
 
 const StyledContainer = styled.div`
@@ -28,6 +31,8 @@ const Content = styled.div`
   display: flex;
   position: absolute;
   align-items: center;
+  top: 80%;
+  left: 80%;
   flex-direction: column;
 `
 
@@ -37,13 +42,16 @@ const HomeIntro = () => {
       <StyledContainer>
         <Content>
           <HomeSectionTitle tag='h2'>
-            Bienvenue sur Novu
+            Télécharger <span>Novu</span> pour
+          </HomeSectionTitle>
+          <HomeSectionTitle tag='h2'>
+            Android et Iphone
           </HomeSectionTitle>
           <HomeSectionSubtitle>
-            L&apos;outil collaboratif pour s&apos;organiser son séjour
+              <DownloadIndication src={googlePlayAppStore} />
           </HomeSectionSubtitle>
         </Content>
-        <StyledImage src={imageBookNote} />
+        <BackgroundImage src={mockUpApp} />
       </StyledContainer>
     </>
   )

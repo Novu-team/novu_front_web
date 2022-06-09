@@ -7,7 +7,8 @@ const theme = {
   alert: '#CF0023FF',
   validateDate: '#FBAE17FF',
   transparent: 'transparent',
-  white: '#fff'
+  white: '#fff',
+  black: '#000000'
 }
 
 export default theme

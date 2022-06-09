@@ -10,6 +10,7 @@ import createStore from './redux/store'
 import reportWebVitals from './reportWebVitals'
 import './langage/i18n'
 import GlobalStyle from './config/style'
+import './config/icons'
 
 const { store, persistor } = createStore()
 

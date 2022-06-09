@@ -8,7 +8,7 @@ const HomeSectionSubtitle = styled.p`
   font-size: 18px;
   font-weight: 600;
   line-height: normal;
-  color: ${({ theme }) => get(theme, 'white', '#FFF')};
+  color: ${({ theme }) => get(theme, 'black', '#FFF')};
   
   ${media.lessThan('sm')`
     font-size: 16px;

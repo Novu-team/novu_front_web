@@ -3,17 +3,19 @@ import { createSlice, createAction, createAsyncThunk } from '@reduxjs/toolkit'
 
 import createAxiosInstance from '../../utils/http'
 
-export const loginUser = createAsyncThunk('authentication/loginUser', async ({ username, password }, { rejectWithValue }) => {
+export const loginUser = createAsyncThunk('authentication/loginUser', async ({ email, password }, { rejectWithValue }) => {
   try {
     const instance = createAxiosInstance()
-    const { data } = await instance.post('/auth/login', {
-      username, password
+    const { data } = await instance.post('/api/login', {
+      email,
+      password
     })
 
     return {
-      token: get(data, 'token')
+      token: get(data, 'access_token')
     }
   } catch (error) {
+    console.log({ error })
     return rejectWithValue({
       code: error.response.status,
       data: error.response.data

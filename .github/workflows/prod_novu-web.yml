@@ -22,16 +22,19 @@ jobs:
           node-version: '16.x'
           cache: yarn
 
+      - name: Install dependencies
+        uses: bahmutov/npm-install@HEAD
       - name: Build step
-        run: yarn build --if-present
+        run: yarn build
+        env:
+          NODE_ENV: production
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
-        env:
-          NODE_ENV: production
+
         with:
           name: node-app
-          path: .
+          path: ./build
 
   deploy:
     runs-on: ubuntu-latest
