@@ -22,18 +22,16 @@ jobs:
           node-version: '16.x'
           cache: yarn
 
-      - name: Install step
-        run: |
-          yarn install --immutable
+      - name: Test step
+        run: yarn test --passWithNoTests
 
       - name: Build step
         run: yarn build --if-present
 
-      - name: Test step
-        run: yarn test --passWithNoTests
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
+        env:
+          NODE_ENV: production
         with:
           name: node-app
           path: .
