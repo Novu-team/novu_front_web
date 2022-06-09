@@ -37,6 +37,6 @@ jobs:
           app-name: 'novu-web'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_449E80432745423CBBE69ED355121D76 }}
-          package: build
+          package: .
 
 
