@@ -23,19 +23,16 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@HEAD
+        run: yarn
 
       - name: Build step
         run: yarn build
-        env:
-          NODE_ENV: production
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'novu-web'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_449E80432745423CBBE69ED355121D76 }}
           package: .
 
