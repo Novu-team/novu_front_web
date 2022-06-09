@@ -22,9 +22,6 @@ jobs:
           node-version: '16.x'
           cache: yarn
 
-      - name: Test step
-        run: yarn test --passWithNoTests
-
       - name: Build step
         run: yarn build --if-present
 
