@@ -35,7 +35,7 @@ jobs:
 
         with:
           name: node-app
-          path: ./build/
+          path: build
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,4 +60,4 @@ jobs:
           app-name: 'novu-web'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_449E80432745423CBBE69ED355121D76 }}
-          package: .
+          package: build
