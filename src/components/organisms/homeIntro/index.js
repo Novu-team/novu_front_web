@@ -24,6 +24,7 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `
 
 const Content = styled.div`
@@ -31,8 +32,8 @@ const Content = styled.div`
   display: flex;
   position: absolute;
   align-items: center;
+  left: 90%;
   top: 80%;
-  left: 80%;
   flex-direction: column;
 `
 
@@ -40,18 +41,18 @@ const HomeIntro = () => {
   return (
     <>
       <StyledContainer>
+        <BackgroundImage src={mockUpApp} />
         <Content>
-          <HomeSectionTitle tag='h2'>
+          <HomeSectionTitle tag='h1'>
             Télécharger <span>Novu</span> pour
           </HomeSectionTitle>
-          <HomeSectionTitle tag='h2'>
+          <HomeSectionTitle tag='h1'>
             Android et Iphone
           </HomeSectionTitle>
           <HomeSectionSubtitle>
-              <DownloadIndication src={googlePlayAppStore} />
+            <DownloadIndication src={googlePlayAppStore} />
           </HomeSectionSubtitle>
         </Content>
-        <BackgroundImage src={mockUpApp} />
       </StyledContainer>
     </>
   )
