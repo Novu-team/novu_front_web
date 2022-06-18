@@ -45,7 +45,7 @@ const HomeIntro = () => {
             Télécharger <span>Novu</span> pour
           </HomeSectionTitle>
           <HomeSectionTitle tag='h2'>
-            Android et Iphone
+            Android et Iphone et windows
           </HomeSectionTitle>
           <HomeSectionSubtitle>
               <DownloadIndication src={googlePlayAppStore} />
