@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { get } from 'lodash'
 
+import DemonstrationImage from '../../../assets/NovuDemonstration.png'
+
 const GiantTitle = styled.h1`
   color: white;
   font-size: 200px;
@@ -9,6 +11,7 @@ const GiantTitle = styled.h1`
 `
 
 const SubGiantTitle = styled.h2`
+  
   font-size: 100px;
   color: white;
   text-align: center;
@@ -22,9 +25,12 @@ const LittleTextIntro = styled.div`
   //TODO : essayer de voir pour bien agencer le texte
 `
 
+const Demonstration = styled.img`
+
+`
+
 const TextExplanation = styled.p`
   color: white;
-  font-weight: bold;
   font-size: x-large;
   padding: 5% 10% 0;
 `
@@ -41,6 +47,7 @@ const BackgroundNovuIntro = styled.div`
   padding-bottom: 50px;
   background: ${({ theme }) => get(theme, 'darkBlue', '#FFF')} no-repeat fixed center;
   background-size: cover;
+  display: flex;
 `
 
 const ExplanationNovuIntro = () => {
@@ -72,7 +79,7 @@ const ExplanationNovuIntro = () => {
         </LittleTextIntro>
       </TextContainerIntro>
       <VisualModelIntro>
-
+        <Demonstration src={DemonstrationImage} />
       </VisualModelIntro>
     </BackgroundNovuIntro>
   )

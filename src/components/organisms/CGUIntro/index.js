@@ -12,7 +12,6 @@ const FooterDiv = styled.div`
 
 const TextStyled = styled.p`
   margin: auto;
-  font-size: 20px;
   color: white;
 `
 

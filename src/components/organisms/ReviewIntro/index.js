@@ -7,7 +7,6 @@ import GuillemetsImg from '../../../assets/svg/Guillemets.svg'
 const GiantTitle = styled.h1`
   color: white;
   font-size: 200px;
-  font-weight: 600;
   text-align: end;
   padding-bottom: 30px;
 `
