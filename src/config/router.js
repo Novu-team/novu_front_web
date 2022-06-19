@@ -15,9 +15,10 @@ import { useSelector } from 'react-redux'
 import userToken from '../redux/selectors/userToken'
 import NavBarHome from '../components/organisms/NavBarHome'
 import Tags from '../components/templates/Tags'
+import CGUPage from '../components/templates/CGUPage'
 
 const Container = styled.div`
-  padding-top: ${({ token }) => !token ? 0 : 'calc(40px + 16px + 9px)'};
+  padding-top: calc(40px + 16px + 9px);
   height: 100%;
 `
 
@@ -32,6 +33,7 @@ const AppRouter = () => {
         <Routes>
           <Route exact path='' element={<Home />} />
           <Route exact path='/login' element={<Login />} />
+          <Route exact path='/politique-confidentialite' element={<CGUPage />} />
           <Route isLogged={false} exact path='/' element={<AuthRoute />}>
             <Route exact path='/users' element={<Users />} />
             <Route exact path='/tags' element={<Tags />} />
