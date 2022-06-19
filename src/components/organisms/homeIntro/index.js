@@ -46,7 +46,7 @@ const HomeIntro = () => {
           <HomeSectionTitle tag='h1'>
             Télécharger <span>Novu</span> pour
           </HomeSectionTitle>
-          <HomeSectionTitle tag='h1'>
+          <HomeSectionTitle tag='h2'>
             Android et Iphone
           </HomeSectionTitle>
           <HomeSectionSubtitle>
