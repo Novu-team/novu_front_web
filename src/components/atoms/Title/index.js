@@ -8,7 +8,7 @@ const Title = styled.h1`
   font-size: 32px;
   line-height: 48px;
   font-weight: bold;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'helvetica';
 `
 
 export default Title

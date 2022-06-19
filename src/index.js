@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ThemeProvider } from 'styled-components'
 
+
 import theme from './config/theme'
 import Router from './config/router'
 import createStore from './redux/store'
@@ -14,19 +15,22 @@ import './config/icons'
 
 const { store, persistor } = createStore()
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Router />
-      </PersistGate>
-    </Provider>
-  </ThemeProvider>
-)
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router />
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
+  )
+}
 
 const container = document.getElementById('root')
 const root = createRoot(container)
+
 root.render(
   <React.StrictMode>
     <App />
